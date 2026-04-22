@@ -1,0 +1,191 @@
+{
+  "info": {
+    "name": "Task Sharing Platform API",
+    "description": "Complete API collection for task sharing platform backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "register"]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"phone\": \"9876543210\",\n  \"area_id\": 1,\n  \"address_line\": \"123 Main Street\",\n  \"landmark\": \"Near Park\",\n  \"latitude\": 12.9716,\n  \"longitude\": 77.5946\n}"
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login"]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"prarthana@example.com\",\n  \"password\": \"password123\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/user/profile",
+              "host": ["{{base_url}}"],
+              "path": ["user", "profile"]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PUT",
+            "url": {
+              "raw": "{{base_url}}/user/profile",
+              "host": ["{{base_url}}"],
+              "path": ["user", "profile"]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe Updated\",\n  \"address_line\": \"456 New Street\",\n  \"landmark\": \"Near School\",\n  \"latitude\": 12.9700,\n  \"longitude\": 77.6000\n}"
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Wallet",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/user/wallet",
+              "host": ["{{base_url}}"],
+              "path": ["user", "wallet"]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Reviews",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/user/reviews",
+              "host": ["{{base_url}}"],
+              "path": ["user", "reviews"]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tasks",
+      "item": [
+        {
+          "name": "Create Task",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{base_url}}/tasks",
+              "host": ["{{base_url}}"],
+              "path": ["tasks"]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Home Cleaning\",\n  \"description\": \"Need thorough cleaning for apartment\",\n  \"price\": 500,\n  \"deadline\": \"2024-05-01T10:00:00Z\",\n  \"area_id\": 1,\n  \"latitude\": 12.9716,\n  \"longitude\": 77.5946\n}"
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",\n                  \"type\": \"string\"\n                }\n              ]\n            }\n          }\n        },\n        {\n          \"name\": \"Get All Tasks\",\n          \"request\": {\n            \"method\": \"GET\",\n            \"url\": {\n              \"raw\": \"{{base_url}}/tasks?page=1&limit=10\",\n              \"host\": [\"{{base_url}}\"],\n              \"path\": [\"tasks\"],\n              \"query\": [\n                {\n                  \"key\": \"page\",\n                  \"value\": \"1\"\n                },\n                {\n                  \"key\": \"limit\",\n                  \"value\": \"10\"\n                }\n              ]\n            }\n          }\n        },\n        {\n          \"name\": \"Get Nearby Tasks\",\n          \"request\": {\n            \"method\": \"GET\",\n            \"url\": {\n              \"raw\": \"{{base_url}}/tasks/nearby?latitude=12.9716&longitude=77.5946&page=1&limit=10\",\n              \"host\": [\"{{base_url}}\"],\n              \"path\": [\"tasks\", \"nearby\"],\n              \"query\": [\n                {\n                  \"key\": \"latitude\",\n                  \"value\": \"12.9716\"\n                },\n                {\n                  \"key\": \"longitude\",\n                  \"value\": \"77.5946\"\n                },\n                {\n                  \"key\": \"page\",\n                  \"value\": \"1\"\n                },\n                {\n                  \"key\": \"limit\",\n                  \"value\": \"10\"\n                }\n              ]\n            }\n          }\n        },\n        {\n          \"name\": \"Complete Task\",\n          \"request\": {\n            \"method\": \"POST\",\n            \"url\": {\n              \"raw\": \"{{base_url}}/tasks/1/complete\",\n              \"host\": [\"{{base_url}}\"],\n              \"path\": [\"tasks\", \"1\", \"complete\"]\n            },\n            \"auth\": {\n              \"type\": \"bearer\",\n              \"bearer\": [\n                {\n                  \"key\": \"token\",\n                  \"value\": \"{{token}}\",\n                  \"type\": \"string\"\n                }\n              ]\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"name\": \"Applications\",\n      \"item\": [\n        {\n          \"name\": \"Apply for Task\",\n          \"request\": {\n            \"method\": \"POST\",\n            \"url\": {\n              \"raw\": \"{{base_url}}/applications/1/apply\",\n              \"host\": [\"{{base_url}}\"],\n              \"path\": [\"applications\", \"1\", \"apply\"]\n            },\n            \"auth\": {\n              \"type\": \"bearer\",\n              \"bearer\": [\n                {\n                  \"key\": \"token\",\n                  \"value\": \"{{token}}\",\n                  \"type\": \"string\"\n                }\n              ]\n            }\n          }\n        },\n        {\n          \"name\": \"Get My Applications\",\n          \"request\": {\n            \"method\": \"GET\",\n            \"url\": {\n              \"raw\": \"{{base_url}}/applications/my\",\n              \"host\": [\"{{base_url}}\"],\n              \"path\": [\"applications\", \"my\"]\n            },\n            \"auth\": {\n              \"type\": \"bearer\",\n              \"bearer\": [\n                {\n                  \"key\": \"token\",\n                  \"value\": \"{{token}}\",\n                  \"type\": \"string\"\n                }\n              ]\n            }\n          }\n        },\n        {\n          \"name\": \"Accept Application\",\n          \"request\": {\n            \"method\": \"POST\",\n            \"url\": {\n              \"raw\": \"{{base_url}}/applications/1/accept\",\n              \"host\": [\"{{base_url}}\"],\n              \"path\": [\"applications\", \"1\", \"accept\"]\n            },\n            \"auth\": {\n              \"type\": \"bearer\",\n              \"bearer\": [\n                {\n                  \"key\": \"token\",\n                  \"value\": \"{{token}}\",\n                  \"type\": \"string\"\n                }\n              ]\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"name\": \"Location\",\n      \"item\": [\n        {\n          \"name\": \"Update Location\",\n          \"request\": {\n            \"method\": \"POST\",\n            \"url\": {\n              \"raw\": \"{{base_url}}/location/update\",\n              \"host\": [\"{{base_url}}\"],\n              \"path\": [\"location\", \"update\"]\n            },\n            \"header\": [\n              {\n                \"key\": \"Content-Type\",\n                \"value\": \"application/json\"\n              }\n            ],\n            \"body\": {\n              \"mode\": \"raw\",\n              \"raw\": \"{\n  \\\"latitude\\\": 12.9700,\n  \\\"longitude\\\": 77.6000\n}\"\n            },\n            \"auth\": {\n              \"type\": \"bearer\",\n              \"bearer\": [\n                {\n                  \"key\": \"token\",\n                  \"value\": \"{{token}}\",\n                  \"type\": \"string\"\n                }\n              ]\n            }\n          }\n        },\n        {\n          \"name\": \"Get Performer Location\",\n          \"request\": {\n            \"method\": \"GET\",\n            \"url\": {\n              \"raw\": \"{{base_url}}/location/task/1\",\n              \"host\": [\"{{base_url}}\"],\n              \"path\": [\"location\", \"task\", \"1\"]\n            },\n            \"auth\": {\n              \"type\": \"bearer\",\n              \"bearer\": [\n                {\n                  \"key\": \"token\",\n                  \"value\": \"{{token}}\",\n                  \"type\": \"string\"\n                }\n              ]\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"name\": \"Wallet\",\n      \"item\": [\n        {\n          \"name\": \"Get Balance\",\n          \"request\": {\n            \"method\": \"GET\",\n            \"url\": {\n              \"raw\": \"{{base_url}}/wallet/balance\",\n              \"host\": [\"{{base_url}}\"],\n              \"path\": [\"wallet\", \"balance\"]\n            },\n            \"auth\": {\n              \"type\": \"bearer\",\n              \"bearer\": [\n                {\n                  \"key\": \"token\",\n                  \"value\": \"{{token}}\",\n                  \"type\": \"string\"\n                }\n              ]\n            }\n          }\n        },\n        {\n          \"name\": \"Get Transactions\",\n          \"request\": {\n            \"method\": \"GET\",\n            \"url\": {\n              \"raw\": \"{{base_url}}/wallet/transactions\",\n              \"host\": [\"{{base_url}}\"],\n              \"path\": [\"wallet\", \"transactions\"]\n            },\n            \"auth\": {\n              \"type\": \"bearer\",\n              \"bearer\": [\n                {\n                  \"key\": \"token\",\n                  \"value\": \"{{token}}\",\n                  \"type\": \"string\"\n                }\n              ]\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"name\": \"Reviews\",\n      \"item\": [\n        {\n          \"name\": \"Add Review\",\n          \"request\": {\n            \"method\": \"POST\",\n            \"url\": {\n              \"raw\": \"{{base_url}}/reviews/task/1\",\n              \"host\": [\"{{base_url}}\"],\n              \"path\": [\"reviews\", \"task\", \"1\"]\n            },\n            \"header\": [\n              {\n                \"key\": \"Content-Type\",\n                \"value\": \"application/json\"\n              }\n            ],\n            \"body\": {\n              \"mode\": \"raw\",\n              \"raw\": \"{\n  \\\"rating\\\": 5,\n  \\\"comment\\\": \\\"Excellent work!\\\"\n}\"\n            },\n            \"auth\": {\n              \"type\": \"bearer\",\n              \"bearer\": [\n                {\n                  \"key\": \"token\",\n                  \"value\": \"{{token}}\",\n                  \"type\": \"string\"\n                }\n              ]\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"name\": \"Admin\",\n      \"item\": [\n        {\n          \"name\": \"Dashboard\",\n          \"request\": {\n            \"method\": \"GET\",\n            \"url\": {\n              \"raw\": \"{{base_url}}/admin/dashboard\",\n              \"host\": [\"{{base_url}}\"],\n              \"path\": [\"admin\", \"dashboard\"]\n            },\n            \"auth\": {\n              \"type\": \"bearer\",\n              \"bearer\": [\n                {\n                  \"key\": \"token\",\n                  \"value\": \"{{token}}\",\n                  \"type\": \"string\"\n                }\n              ]\n            }\n          }\n        },\n        {\n          \"name\": \"Analytics\",\n          \"request\": {\n            \"method\": \"GET\",\n            \"url\": {\n              \"raw\": \"{{base_url}}/admin/analytics\",\n              \"host\": [\"{{base_url}}\"],\n              \"path\": [\"admin\", \"analytics\"]\n            },\n            \"auth\": {\n              \"type\": \"bearer\",\n              \"bearer\": [\n                {\n                  \"key\": \"token\",\n                  \"value\": \"{{token}}\",\n                  \"type\": \"string\"\n                }\n              ]\n            }\n          }\n        }\n      ]\n    }\n  ],\n  \"variable\": [\n    {\n      \"key\": \"base_url\",\n      \"value\": \"http://localhost:5000\"\n    },\n    {\n      \"key\": \"token\",\n      \"value\": \"\"\n    }\n  ]\n}\n
