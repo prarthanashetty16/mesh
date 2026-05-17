@@ -2,8 +2,6 @@
 
 A full-stack task marketplace where users can post jobs, apply for work, manage payments, and build reputation through reviews.
 
-**Live Demo:** [https://prarthanashetty16.github.io/mesh/](https://prarthanashetty16.github.io/mesh/)
-
 ---
 
 ## 📚 Documentation
