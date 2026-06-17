@@ -223,11 +223,4 @@ npm run deploy    # Deploy to GitHub Pages
 3. **Want all details?** → Read [DEMO_SETUP_GUIDE.md](DEMO_SETUP_GUIDE.md)
 
 ---
-
-## 📄 License
-
-This project is open source and available under the MIT License.
-
----
-
 **Happy demoing! 🎉**
